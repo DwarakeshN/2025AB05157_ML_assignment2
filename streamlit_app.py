@@ -3,6 +3,11 @@ import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+
+st.write("Files in root:", os.listdir("."))
+
+st.write("Files in models folder:", os.listdir("models"))
 
 from sklearn.metrics import (
     accuracy_score,
@@ -128,3 +133,4 @@ if uploaded_file is not None:
     ax.set_ylabel("True Label")
 
     st.pyplot(fig)
+
