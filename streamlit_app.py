@@ -75,7 +75,7 @@ if uploaded_file is not None:
         "spec_obj_ID"
     ]
 
-    df.drop(columns=cols_to_drop, inplace=True)
+    df.drop(columns=cols_to_drop, inplace=True, errors="ignore")
 
     # Encode target column exactly like in training
     label_encoder = LabelEncoder()
@@ -145,6 +145,7 @@ if uploaded_file is not None:
     ax.set_ylabel("True Label")
 
     st.pyplot(fig)
+
 
 
 
