@@ -1,4 +1,4 @@
-1. PROBLEM STATEMENT
+**1. PROBLEM STATEMENT**
 
 The goal of this project is to classify celestial objects observed in the Sloan Digital Sky Survey (SDSS) into one of three categories:
   1. STAR
@@ -7,7 +7,7 @@ The goal of this project is to classify celestial objects observed in the Sloan 
 
 Using their astrophysical and photometric properties such as magnitudes (u, g, r, i, z), redshift, and spatial coordinates.
 
-2. DATASET DESCRIPTION
+**2. DATASET DESCRIPTION**
 
 Dataset: Stellar Classification Dataset – SDSS17
 Source: Kaggle (https://www.kaggle.com/datasets/fedesoriano/stellar-classification-dataset-sdss17)
@@ -22,7 +22,7 @@ Features include:
   3. Right ascension (alpha) and declination (delta)
   4. Run data (run_ID, cam_col, etc.)
 
-3. MODELS USED
+**3. MODELS USED**
 
 The following models have been implemented:
   1. Logistic Regression
@@ -34,11 +34,11 @@ The following models have been implemented:
 
 And each model is evaluated using:
   1. Accuracy
-  2. Precision
-  3. Recall
-  4. F1 Score
-  5. MCC (Matthews Correlation Coefficient)
-  6. AUC (One-vs-Rest, macro-averaged)
+  2. AUC (One-vs-Rest, macro-averaged)
+  3. Precision
+  4. Recall
+  5. F1 Score
+  6. MCC (Matthews Correlation Coefficient)
 
 ----------------------------------------------------------------------------------------------------------------------------
 |       ML Model Name       |    Accuracy	    |     AUC      |    Precision	   |    Recall    |    F1 Score	   |    MCC    |
@@ -51,8 +51,24 @@ And each model is evaluated using:
 ----------------------------------------------------------------------------------------------------------------------------
 |        Naive Bayes	      |     0.7256	    |    0.9314	   |      0.7873	   |    0.6403	  |     0.6026	   |   0.507   |
 ----------------------------------------------------------------------------------------------------------------------------
-|        Random Forest	    |     0.9807      |    0.995	   |      0.9809	   |    0.9742	  |     0.9774     | 	 0.9656  |
+|  Random Forest (Ensemble)	|     0.9807      |    0.995	   |      0.9809	   |    0.9742	  |     0.9774     | 	 0.9656  |
 ----------------------------------------------------------------------------------------------------------------------------
-|          XGBoost	        |     0.9772	    |    0.9958	   |      0.9762	   |    0.9715	  |     0.9737	   |   0.9595  |
+|     XGBoost(Ensemble)     |     0.9772	    |    0.9958	   |      0.9762	   |    0.9715	  |     0.9737	   |   0.9595  |
 ----------------------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|       ML Model Name       |                                                                        Observations                                                                                            |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|    Logistic Regression	  |	   Delivered strong overall performance, indicating that a significant portion of the feature space is linearly separable across the three stellar classes.                    |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|       Decision Tree       |    Achieved high accuracy but showed mild overfitting tendencies, performing slightly below ensemble models due to its single-tree structure.                                  |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|            KNN	          |    KNN performed moderately, with reduced recall suggesting limitations in handling overlapping feature distributions common in astrophysical data.                            |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|        Naive Bayes	      |    Naive Bayes produced the lowest metrics, largely due to the violation of its conditional-independence assumption among correlated photometric features.                     |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Random Forest (Ensemble)	|    Random Forest achieved the strongest performance, leveraging ensemble averaging to capture complex non-linear relationships and reduce variance effectively.                |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|     XGBoost(Ensemble)     |    XGBoost delivered performance comparable to Random Forest with superior AUC, reflecting its ability to model subtle multi-class boundaries through gradient-boosted trees.  |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
